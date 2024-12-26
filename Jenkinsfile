@@ -31,11 +31,7 @@ pipeline {
                         sh '''
                             echo "Test Stage"
                             npm run test
-                            if [ ! -e build/index.html ]; then
-                                exit 1
-                            else
-                                echo "file exists"
-                            fi
+                            test -f build/index.html
                         '''
 
                     }
