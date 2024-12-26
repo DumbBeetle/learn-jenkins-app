@@ -29,14 +29,15 @@ pipeline {
                 }
                     steps {
                         sh '''
-                        echo "Test Stage"
+                            echo "Test Stage"
                             npm run test
-                        '''
-                        sh 'if [ ! -e /build/index.html ]; then
-                            exit 1
+                            if [ ! -e /build/index.html ]; then
+                                exit 1
                             else
-                                echo "file exist"
-                            fi'
+                                echo "file exists"
+                            fi
+                        '''
+
                     }
                 }
     }
